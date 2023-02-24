@@ -1,0 +1,30 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <div>
+      <h1>Let's rock it Full Cycle!!</h1>
+      <ul></ul>
+      <script>
+        function handleClick() {
+          var name = document.getElementById('add_name').value
+
+          var myHeaders = new Headers();
+          myHeaders.append('Content-Type', 'application/json');
+          myHeaders.append('Accept', 'application/json');
+
+          fetch(`http://localhost:8080/create-name?name=${name}`, {
+            headers: myHeaders
+          })
+            .then((res) => location.reload())
+            .catch((err) => console.log('Error: ', err))
+        }
+      </script>
+      <input
+        type="text"
+        id="add_name" name="add_name"
+      />
+      <button onclick="handleClick()">Enviar</button>
+    </div>
+  </body>
+</html>
