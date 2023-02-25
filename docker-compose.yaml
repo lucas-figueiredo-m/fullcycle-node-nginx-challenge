@@ -8,8 +8,6 @@ services:
       context: ./node
     networks:
       - node-network
-    volumes:
-      - ./node:/usr/src/app
     tty: true
     depends_on:
       - db
@@ -35,7 +33,6 @@ services:
       context: ./nginx
     image: lucasfigueiredom/node-nginx:latest
     container_name: nginx
-    # entrypoint: dockerize -wait tcp://app:8080 -timeout 20s /docker-entrypoint.sh
     networks:
       - node-network
     ports:
