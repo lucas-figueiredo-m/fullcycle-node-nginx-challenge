@@ -19,4 +19,6 @@ RUN ln -s /usr/src/app /var/www/html
 
 EXPOSE 8080
 
+RUN npm install
+
 CMD ["node", "index.js"]
